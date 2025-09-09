@@ -1,0 +1,14 @@
+C:\Users\kabil\OneDrive\Desktop\firsttest\src\main\kotlin\com\jira\plugin\models\TestFailure.kt
+C:\Users\kabil\OneDrive\Desktop\firsttest\src\main\kotlin\com\jira\plugin\ui\AIInsightsPanel.kt
+C:\Users\kabil\OneDrive\Desktop\firsttest\src\main\kotlin\com\jira\plugin\ui\TestFailuresPanel.kt
+C:\Users\kabil\OneDrive\Desktop\firsttest\src\main\kotlin\com\jira\plugin\actions\CreateJiraTicketFromContextAction.kt
+C:\Users\kabil\OneDrive\Desktop\firsttest\src\main\kotlin\com\jira\plugin\services\JiraIntegrationService.kt
+C:\Users\kabil\OneDrive\Desktop\firsttest\src\main\kotlin\com\jira\plugin\settings\JiraSettingsConfigurable.kt
+C:\Users\kabil\OneDrive\Desktop\firsttest\src\main\kotlin\com\jira\plugin\services\AIService.kt
+C:\Users\kabil\OneDrive\Desktop\firsttest\src\main\kotlin\com\jira\plugin\ui\TestFailuresToolWindowFactory.kt
+C:\Users\kabil\OneDrive\Desktop\firsttest\src\main\kotlin\com\jira\plugin\actions\CreateJiraTicketAction.kt
+C:\Users\kabil\OneDrive\Desktop\firsttest\src\main\kotlin\com\jira\plugin\listeners\TestRunListener.kt
+C:\Users\kabil\OneDrive\Desktop\firsttest\src\main\kotlin\com\jira\plugin\services\TestFailureStorageService.kt
+C:\Users\kabil\OneDrive\Desktop\firsttest\src\main\kotlin\com\jira\plugin\actions\OpenSettingsAction.kt
+C:\Users\kabil\OneDrive\Desktop\firsttest\src\main\kotlin\com\jira\plugin\services\JiraApiService.kt
+C:\Users\kabil\OneDrive\Desktop\firsttest\src\main\kotlin\com\jira\plugin\settings\JiraSettings.kt

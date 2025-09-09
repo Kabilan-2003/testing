@@ -1,0 +1,39 @@
+<idea-plugin>
+  <idea-version since-build="231" until-build="241.*" />
+  <id>com.cts.jira.test.automation</id>
+  <name>Jira Test Automation Integration</name>
+  <version>1.0-SNAPSHOT</version>
+  <vendor>Your Company</vendor>
+  <description><![CDATA[Automatically create Jira tickets for test failures with AI-powered descriptions.
+        Features:
+        - Automatic detection of test failures
+        - Create Jira tickets with a single click
+        - AI-powered ticket descriptions
+        - Configurable Jira integration settings]]></description>
+  <depends>com.intellij.modules.java</depends>
+  <depends>com.intellij.java</depends>
+  <depends>org.jetbrains.kotlin</depends>
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Project service for plugin functionality -->
+    <projectService serviceImplementation="com.cts.jiraplugin.JiraTestAutomationPlugin" />
+    <!-- Application-level settings -->
+    <applicationService serviceImplementation="com.cts.jiraplugin.settings.JiraSettings" />
+    <!-- Settings UI -->
+    <applicationConfigurable instance="com.cts.jiraplugin.settings.JiraSettingsConfigurable" id="jira.test.automation.settings" displayName="Jira Test Automation" groupId="tools" />
+    <!-- Notification group for plugin notifications -->
+    <notificationGroup id="JiraTestAutomation.NotificationGroup" displayType="BALLOON" isLogByDefault="true" />
+    <!-- Test framework listener -->
+    <testFrameworkListener implementation="com.cts.jiraplugin.listener.JUnitTestListener" />
+  </extensions>
+  <actions>
+    <!-- Action to open plugin settings -->
+    <action id="JiraTestAutomation.OpenSettings" class="com.cts.jiraplugin.actions.OpenSettingsAction" text="Jira Test Automation Settings" description="Open Jira Test Automation settings">
+      <add-to-group group-id="ToolsMenu" anchor="last" />
+    </action>
+  </actions>
+  <application-components>
+    <component>
+      <implementation-class>com.cts.jiraplugin.JiraTestAutomationPlugin</implementation-class>
+    </component>
+  </application-components>
+</idea-plugin>

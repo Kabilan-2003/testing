@@ -1,0 +1,1 @@
+rootProject.name = "jira-test-automation-plugin"

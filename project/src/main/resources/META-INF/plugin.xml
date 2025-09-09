@@ -1,0 +1,92 @@
+<idea-plugin>
+    <id>com.jira.testautomation.plugin</id>
+    <name>AI-Powered Jira Integration for Test Automation</name>
+    <vendor email="support@example.com" url="https://example.com">Test Automation Solutions</vendor>
+
+    <description><![CDATA[
+    <h2>AI-Powered Jira Integration for Test Automation Failures</h2>
+    
+    <p>Streamline your QA workflow by automatically creating Jira tickets from failed test cases with AI-powered descriptions and root cause analysis.</p>
+    
+    <h3>Key Features:</h3>
+    <ul>
+        <li>🔍 <strong>Automatic Test Failure Detection</strong> - Monitors Rest Assured and other test frameworks</li>
+        <li>🤖 <strong>AI-Generated Bug Reports</strong> - Smart descriptions with probable root cause analysis</li>
+        <li>🎫 <strong>One-Click Jira Integration</strong> - Create tickets directly from IntelliJ</li>
+        <li>📊 <strong>Test Tracking</strong> - Link test cases to Jira tickets for comprehensive tracking</li>
+        <li>🔔 <strong>Smart Notifications</strong> - Get notified of new failures and ticket creation</li>
+    </ul>
+    
+    <h3>Supported Test Frameworks:</h3>
+    <ul>
+        <li>Rest Assured</li>
+        <li>JUnit 4/5</li>
+        <li>TestNG</li>
+        <li>Spock</li>
+    </ul>
+    ]]></description>
+
+    <change-notes><![CDATA[
+    <h3>Version 1.0.0</h3>
+    <ul>
+        <li>Initial release with basic Jira integration</li>
+        <li>Test failure detection for Rest Assured</li>
+        <li>Manual API token authentication</li>
+        <li>Basic ticket creation workflow</li>
+    </ul>
+    ]]></change-notes>
+
+    <!-- Plugin compatibility -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
+    <depends>com.intellij.gradle</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Tool Windows -->
+        <toolWindow id="Jira Test Failures" 
+                   anchor="bottom" 
+                   factoryClass="com.jira.testautomation.ui.TestFailuresToolWindowFactory"
+                   icon="/icons/jira-icon.svg"/>
+
+        <!-- Settings -->
+        <applicationConfigurable parentId="tools" 
+                                instance="com.jira.testautomation.settings.JiraSettingsConfigurable"
+                                id="com.jira.testautomation.settings"
+                                displayName="Jira Test Automation"/>
+
+        <!-- Test Run Listener -->
+        <testRunListener implementation="com.jira.testautomation.listeners.TestRunListener"/>
+
+        <!-- Project Service -->
+        <projectService serviceImplementation="com.jira.testautomation.services.JiraIntegrationService"/>
+
+        <!-- Application Service -->
+        <applicationService serviceImplementation="com.jira.testautomation.services.AIService"/>
+    </extensions>
+
+    <actions>
+        <!-- Main menu actions -->
+        <action id="JiraTestAutomation.CreateTicket" 
+                class="com.jira.testautomation.actions.CreateJiraTicketAction"
+                text="Create Jira Ticket from Test Failure"
+                description="Create a Jira ticket for the selected test failure">
+            <add-to-group group-id="RunMenu" anchor="after" relative-to-action="RerunFailedTests"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt J"/>
+        </action>
+
+        <action id="JiraTestAutomation.OpenSettings" 
+                class="com.jira.testautomation.actions.OpenSettingsAction"
+                text="Jira Test Automation Settings"
+                description="Open Jira Test Automation settings">
+            <add-to-group group-id="ToolsMenu" anchor="last"/>
+        </action>
+
+        <!-- Context menu actions -->
+        <action id="JiraTestAutomation.CreateTicketFromContext" 
+                class="com.jira.testautomation.actions.CreateJiraTicketFromContextAction"
+                text="Create Jira Ticket"
+                description="Create a Jira ticket for this test failure">
+            <add-to-group group-id="RunMenu" anchor="after" relative-to-action="RerunFailedTests"/>
+        </action>
+    </actions>
+</idea-plugin>
